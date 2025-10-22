@@ -25,17 +25,19 @@ module.exports = {
     start(options = {}) {
         //koa实例
         const app = new Koa();
+        console.log(process.env._ENV, 'app.env');
+        
         //应用配置
         app.options = options;
-        console.log(app.options);
+        // console.log(app.options);
 
         //基础路径
         app.baseDir = process.cwd();
-        console.log(app.baseDir);
+        // console.log(app.baseDir);
 
         //业务文件路径
         app.businessPath = path.resolve(app.baseDir, `.${sep}app`);
-        console.log(app.businessPath);
+        // console.log(app.businessPath);
 
         //初始化环境配置
         app.env = env();

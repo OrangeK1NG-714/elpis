@@ -17,31 +17,40 @@ const { sep } = path;
 module.exports = (app) => {
     //找到config/目录
     const configPath = path.resolve(app.baseDir, `.${sep}config`)
+
+    console.log(configPath, 'configPath');
+
     //获取default.config
     let defaultConfig = {};
     try {
-        defaultConfig = require(path.resolve(configPath, `.${sep}.config.default.js`))
+        defaultConfig = require(path.resolve(configPath, `.${sep}config.default.js`))
     } catch (e) {
         console.log('default-config not found')
     }
+    console.log(defaultConfig, 'defaultConfig');
     //获取env.config
-    let envConfig ={}
-    try{
-        if(app.env.isLocal())//本地环境
-         {
-            envConfig = require(path.resolve(configPath, `.${sep}.config.local.js`))
+    let envConfig = {}
+    try {
+        if (app.env.isLocal())//本地环境
+        {
+            envConfig = require(path.resolve(configPath, `.${sep}config.local.js`))
+            console.log('local-config found');
         }
-        if(app.env.isBeta())//测试环境
-         {
-            envConfig = require(path.resolve(configPath, `.${sep}.config.beta.js`))
+        if (app.env.isBeta())//测试环境
+        {
+            envConfig = require(path.resolve(configPath, `.${sep}config.beta.js`))
+            console.log('beta-config found');
         }
-        if(app.env.isProd())//生产环境
-         {
-            envConfig = require(path.resolve(configPath, `.${sep}.config.prod.js`))
+        if (app.env.isProd())//生产环境
+        {
+            envConfig = require(path.resolve(configPath, `.${sep}config.prod.js`))
+            console.log('prod-config found');
         }
-    }catch(e){
+    } catch (e) {
         console.log('env-config not found')
     }
+    console.log(envConfig, 'envConfig');
+
     //覆盖并加载config配置
-    app.config = Object.assign({},defaultConfig, envConfig)
+    app.config = Object.assign({}, defaultConfig, envConfig)
 }
