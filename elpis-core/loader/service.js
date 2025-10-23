@@ -37,12 +37,12 @@ module.exports = (app) => {
         for (let i = 0, len = names.length; i < len; ++i) {
             if (i === len - 1) {
                 const ServiceModule = require(path.resolve(file))(app)
-                tempService[name[i]] =new ServiceModule()
+                tempService[names[i]] =new ServiceModule()
             } else {
-                if (!tempService[name[i]]) {
-                    tempService[name[i]] = {}
+                if (!tempService[names[i]]) {
+                    tempService[names[i]] = {}
                 }
-                tempService = tempService[name[i]]
+                tempService = tempService[names[i]]
             }
         }
     })

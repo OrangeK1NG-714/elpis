@@ -26,6 +26,7 @@ module.exports = {
         //koa实例
         const app = new Koa();
         console.log(process.env._ENV, 'app.env');
+        console.log(process.cwd(), 'process.cwd');
         
         //应用配置
         app.options = options;

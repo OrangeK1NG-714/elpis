@@ -30,21 +30,27 @@ module.exports = (app) => {
 
         //把路径中的-改为驼峰式custom-module/custom-controller =>customModule.customController
         name = name.replace(/[_-][a-z]/ig, (s) => s.substring(1).toUpperCase())
+console.log(name,'name');
 
         //挂载controller到内存app对象中
         let tempController = controller;
         const names = name.split(sep)
+        console.log(names[0],'names');
+
         for (let i = 0, len = names.length; i < len; ++i) {
             if (i === len - 1) {
                 const ControllerModule = require(path.resolve(file))(app)
-                tempController[name[i]] =new ControllerModule()
+                console.log(ControllerModule,'ControllerModule');
+                tempController[names[i]] =new ControllerModule()
             } else {
-                if (!tempController[name[i]]) {
-                    tempController[name[i]] = {}
+                if (!tempController[names[i]]) {
+                    tempController[names[i]] = {}
                 }
                 tempController = tempController[name[i]]
             }
         }
     })
+    console.log(controller,'controller已加载123131');
+    
     app.controller = controller
 }
