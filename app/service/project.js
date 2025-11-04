@@ -1,6 +1,9 @@
 module.exports =(app)=>{
-    return class ProjectService{
+    const BaseService = require('./base')(app);
+    return class ProjectService extends BaseService{
         async getList(){
+            // console.log(111,this.curl);
+            
             return [{
                 name:'project1',
                 desc:'project1 desc'

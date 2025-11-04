@@ -25,8 +25,8 @@ module.exports = {
     start(options = {}) {
         //koa实例
         const app = new Koa();
-        console.log(process.env._ENV, 'app.env');
-        console.log(process.cwd(), 'process.cwd');
+        // console.log(process.env._ENV, 'app.env');
+        // console.log(process.cwd(), 'process.cwd');
         
         //应用配置
         app.options = options;
@@ -45,29 +45,29 @@ module.exports = {
 
         //加载middleware
         middlewareLoader(app)
-        console.log(app.middlewares);
+        // console.log(app.middlewares);
 
         //加载routerSchema
         routerSchemaLoader(app)
-        console.log(app.routerSchema);
+        // console.log(app.routerSchema);
 
         //加载controller
         controllerLoader(app)
-        console.log(app.controller);
+        // console.log(app.controller);
 
         //加载service
         serviceLoader(app)
-        console.log(app.service);
+        // console.log(app.service);
 
         //加载config
         configLoader(app)
-        console.log(app.config);
+        // console.log(app.config);
 
         //加载extend
         extendLoader(app)
-        console.log(app);
+        // console.log(app);
 
-        console.log(app.extend);
+        // console.log(app.extend);
         //注册全局中间件
         try {
             require(`${app.businessPath}${sep}middleware.js`)(app)
@@ -77,7 +77,7 @@ module.exports = {
         }
         //注册路由
         routerLoader(app)
-        console.log(app.router);
+        // console.log(app.router);
 
         try {
             const port = process.env.PORT || 8080;

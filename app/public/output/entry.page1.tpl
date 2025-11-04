@@ -12,6 +12,7 @@
     <button onClick="handleClick()">发送请求</button>
 </body>
 <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/npm/js-md5@0.8.3/src/md5.min.js"></script>
 <script type="text/javascript">
     try{
         window.env = document.getElementById('env').value;
@@ -21,8 +22,17 @@
         console.log(e)
     }
     const handleClick=()=>{
-        console.log(123)
-        axios.get('/api/project/list').then(res=>console.log(res))
+        const signKey='richardq714'
+        const st =Date.now();
+        axios.request({
+            method:'get',
+            url:'/api/project/list',
+            params:{proj_key: 'test'},
+            headers:{
+                s_t:st,
+                s_sign:md5(`${signKey}_${st}`)
+                }
+        })
     }
 </script>
 </html>

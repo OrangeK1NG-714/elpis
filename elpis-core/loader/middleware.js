@@ -44,5 +44,6 @@ module.exports = (app) => {
             }
         }        
     })
+    // console.log(middlewares,3333333);
     app.middlewares = middlewares
 }

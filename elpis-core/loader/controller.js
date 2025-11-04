@@ -35,12 +35,12 @@ console.log(name,'name');
         //挂载controller到内存app对象中
         let tempController = controller;
         const names = name.split(sep)
-        console.log(names[0],'names');
+        // console.log(names[0],'names');
 
         for (let i = 0, len = names.length; i < len; ++i) {
             if (i === len - 1) {
                 const ControllerModule = require(path.resolve(file))(app)
-                console.log(ControllerModule,'ControllerModule');
+                // console.log(ControllerModule,'ControllerModule');
                 tempController[names[i]] =new ControllerModule()
             } else {
                 if (!tempController[names[i]]) {
@@ -50,7 +50,7 @@ console.log(name,'name');
             }
         }
     })
-    console.log(controller,'controller已加载123131');
+    // console.log(controller,'controller已加载123131');
     
     app.controller = controller
 }

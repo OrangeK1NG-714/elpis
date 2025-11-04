@@ -27,8 +27,6 @@ module.exports = (app) => {
     } catch (e) {
         console.log('default-config not found')
     }
-    console.log(defaultConfig, 'defaultConfig');
-    //获取env.config
     let envConfig = {}
     try {
         if (app.env.isLocal())//本地环境
@@ -49,7 +47,6 @@ module.exports = (app) => {
     } catch (e) {
         console.log('env-config not found')
     }
-    console.log(envConfig, 'envConfig');
 
     //覆盖并加载config配置
     app.config = Object.assign({}, defaultConfig, envConfig)

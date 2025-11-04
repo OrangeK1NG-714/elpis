@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --quiet --ext js,vue .",
-    "dev":"set _ENV='local' && nodemon ./index.js",
-    "beta":"set _ENV='beta' && nodemon ./index.js",
-    "prod":"set _ENV='prod' && nodemon ./index.js"
+    "dev":"set _ENV=local&& nodemon ./index.js",
+    "beta":"set _ENV=beta&& nodemon ./index.js",
+    "prod":"set _ENV=prod&& nodemon ./index.js"
   },
   "repository": {
     "type": "git",
