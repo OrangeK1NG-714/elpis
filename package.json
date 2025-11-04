@@ -4,7 +4,10 @@
   "description": "一个企业级应用框架，通过全栈实现",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --quiet --ext js,vue ."
+    "lint": "eslint --quiet --ext js,vue .",
+    "dev":"set _ENV=local&& nodemon ./index.js",
+    "beta":"set _ENV=beta&& nodemon ./index.js",
+    "prod":"set _ENV=prod&& nodemon ./index.js"
   },
   "repository": {
     "type": "git",
