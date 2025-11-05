@@ -21,7 +21,7 @@ module.exports = (app) => {
         app.logger.info(`[${method} ${path}] params:${JSON.stringify(params)}`)
 
         const schema = app.routerSchema[path]?.[method.toLowerCase()]
-        console.log(schema,123);
+        // console.log(schema,123);
 
         if (!schema) {
             return await next()
