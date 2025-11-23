@@ -2,6 +2,7 @@ import { createApp } from "vue";
 //引入elementUI
 import ElementUI from 'element-plus';
 import 'element-plus/theme-chalk/index.css';
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 import './assets/custom.css'
 

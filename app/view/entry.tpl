@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html class="dark">
 <head>
     <meta charset="utf-8">
     <link href="/static/normalize.css" rel="stylesheet">
