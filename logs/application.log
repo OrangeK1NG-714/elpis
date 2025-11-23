@@ -1,3 +1,20 @@
-[2025-11-03T20:28:58.619] [INFO] default - 123
-[2025-11-03T20:28:59.180] [INFO] default - 123
-[2025-11-03T20:28:59.591] [INFO] default - 123
+[2025-11-15T14:38:15.082] [INFO] default - [GET /api/project/model_list] body:{}
+[2025-11-15T14:38:15.083] [INFO] default - [GET /api/project/model_list] query:{}
+[2025-11-15T14:38:15.083] [INFO] default - [GET /api/project/model_list] headers:{"host":"127.0.0.1:4603","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","s_t":"1763188694644","s_sign":"1d07021c3763b8140e26f74728c1d01f","connection":"close"}
+[2025-11-15T14:38:15.084] [INFO] default - [GET /api/project/model_list] params:undefined
+[2025-11-15T14:40:12.805] [INFO] default - [GET /api/project/model_list] body:{}
+[2025-11-15T14:40:12.806] [INFO] default - [GET /api/project/model_list] query:{}
+[2025-11-15T14:40:12.806] [INFO] default - [GET /api/project/model_list] headers:{"host":"127.0.0.1:11980","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","s_t":"1763188812396","s_sign":"bcbefaa5c8a1740b47df1fe01fd9ed88","connection":"close"}
+[2025-11-15T14:40:12.806] [INFO] default - [GET /api/project/model_list] params:undefined
+[2025-11-15T14:40:27.199] [INFO] default - [GET /api/project/model_list] body:{}
+[2025-11-15T14:40:27.200] [INFO] default - [GET /api/project/model_list] query:{}
+[2025-11-15T14:40:27.200] [INFO] default - [GET /api/project/model_list] headers:{"host":"127.0.0.1:1580","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","s_t":"1763188826828","s_sign":"93c7a332cda55b5b24f029b2a4f00aca","connection":"close"}
+[2025-11-15T14:40:27.200] [INFO] default - [GET /api/project/model_list] params:undefined
+[2025-11-15T14:47:36.638] [INFO] default - [GET /api/project/model_list] body:{}
+[2025-11-15T14:47:36.639] [INFO] default - [GET /api/project/model_list] query:{}
+[2025-11-15T14:47:36.639] [INFO] default - [GET /api/project/model_list] headers:{"host":"127.0.0.1:11843","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","s_t":"1763189256287","s_sign":"78ae7fd3b16764edc478dcd3ba5017cf","connection":"close"}
+[2025-11-15T14:47:36.639] [INFO] default - [GET /api/project/model_list] params:undefined
+[2025-11-15T14:47:44.780] [INFO] default - [GET /api/project/model_list] body:{}
+[2025-11-15T14:47:44.781] [INFO] default - [GET /api/project/model_list] query:{}
+[2025-11-15T14:47:44.781] [INFO] default - [GET /api/project/model_list] headers:{"host":"127.0.0.1:10346","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","s_t":"1763189264412","s_sign":"6a328e1cb932cfc8e4ade9ac72363ef1","connection":"close"}
+[2025-11-15T14:47:44.781] [INFO] default - [GET /api/project/model_list] params:undefined

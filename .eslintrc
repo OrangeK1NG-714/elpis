@@ -1,7 +1,7 @@
 {
   "extends": [
     "plugin:vue/base",
-    "plugin:vue/recommended",
+    "plugin:vue/recommended"
   ],
   "plugins": ["vue"],
   "env": {
