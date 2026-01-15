@@ -1,0 +1,41 @@
+[2026-01-14T17:00:49.632] [INFO] default - [GET /api/project/model_list] body:{}
+[2026-01-14T17:00:49.633] [INFO] default - [GET /api/project/model_list] query:{}
+[2026-01-14T17:00:49.634] [INFO] default - [GET /api/project/model_list] headers:{"host":"localhost:8080","connection":"keep-alive","s_t":"1768381249611","sec-ch-ua-platform":"\"Windows\"","sec-ch-ua":"\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"","sec-ch-ua-mobile":"?0","s_sign":"d61a90b854d69e19856ecdbbb5fb7eaa","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","content-type":"application/json;charset=utf-8","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:8080/view/project-list","accept-encoding":"gzip, deflate, br, zstd","accept-language":"zh-CN,zh;q=0.9,en;q=0.8","cookie":"Hm_lvt_d616681c9cda3073e60f07a459b5ce4e=1752654825"}
+[2026-01-14T17:00:49.634] [INFO] default - [GET /api/project/model_list] params:undefined
+[2026-01-14T22:36:46.954] [INFO] default - {"cause":{},"isOperational":true}
+[2026-01-14T22:36:46.954] [ERROR] default - [-- exception --]: OperationalError: template not found: dist/entry.page1.tpl
+    at createTemplate (D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:234:15)
+    ... 14 lines matching cause stack trace ...
+    at new Promise (<anonymous>) {
+  cause: Error: template not found: dist/entry.page1.tpl
+      at createTemplate (D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:234:15)
+      at next (D:\桌面\elpis-tencent\node_modules\nunjucks\src\lib.js:260:7)
+      at handle (D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:267:11)
+      at D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:276:9
+      at next (D:\桌面\elpis-tencent\node_modules\nunjucks\src\lib.js:258:7)
+      at Object.asyncIter (D:\桌面\elpis-tencent\node_modules\nunjucks\src\lib.js:263:3)
+      at Environment.getTemplate (D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:259:9)
+      at Environment.render (D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:295:10)
+      at Environment.promisified [as renderAsync] (D:\桌面\elpis-tencent\node_modules\bluebird\js\release\promisify.js:223:16)
+      at _callee$ (D:\桌面\elpis-tencent\node_modules\koa-nunjucks-2\compiled.js:109:64)
+      at tryCatch (D:\桌面\elpis-tencent\node_modules\regenerator-runtime\runtime.js:62:40)
+      at Generator.invoke [as _invoke] (D:\桌面\elpis-tencent\node_modules\regenerator-runtime\runtime.js:296:22)
+      at prototype.<computed> [as next] (D:\桌面\elpis-tencent\node_modules\regenerator-runtime\runtime.js:114:21)
+      at step (D:\桌面\elpis-tencent\node_modules\babel-runtime\helpers\asyncToGenerator.js:17:30)
+      at D:\桌面\elpis-tencent\node_modules\babel-runtime\helpers\asyncToGenerator.js:35:14
+      at new Promise (<anonymous>),
+  isOperational: true
+}
+[2026-01-14T22:36:46.955] [ERROR] default - [-- exception --]: undefined template not found: dist/entry.page1.tpl undefined
+[2026-01-14T22:37:14.644] [INFO] default - [GET /api/project/list] body:{}
+[2026-01-14T22:37:14.644] [INFO] default - [GET /api/project/list] query:{"proj_key":"pdd"}
+[2026-01-14T22:37:14.644] [INFO] default - [GET /api/project/list] headers:{"host":"localhost:8080","connection":"keep-alive","s_t":"1768401434625","sec-ch-ua-platform":"\"Windows\"","sec-ch-ua":"\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"","sec-ch-ua-mobile":"?0","s_sign":"b23d0a190bf2f22b10c5d6a01ba8613e","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","content-type":"application/json;charset=utf-8","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:8080/view/dashboard","accept-encoding":"gzip, deflate, br, zstd","accept-language":"zh-CN,zh;q=0.9,en;q=0.8","cookie":"Hm_lvt_d616681c9cda3073e60f07a459b5ce4e=1752654825"}
+[2026-01-14T22:37:14.644] [INFO] default - [GET /api/project/list] params:undefined
+[2026-01-14T22:37:14.659] [INFO] default - [GET /api/project] body:{}
+[2026-01-14T22:37:14.660] [INFO] default - [GET /api/project] query:{"proj_key":"pdd"}
+[2026-01-14T22:37:14.660] [INFO] default - [GET /api/project] headers:{"host":"localhost:8080","connection":"keep-alive","s_t":"1768401434626","sec-ch-ua-platform":"\"Windows\"","sec-ch-ua":"\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"","sec-ch-ua-mobile":"?0","s_sign":"f70fb4db976132a2c48f74b0e57abeb1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","content-type":"application/json;charset=utf-8","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:8080/view/dashboard","accept-encoding":"gzip, deflate, br, zstd","accept-language":"zh-CN,zh;q=0.9,en;q=0.8","cookie":"Hm_lvt_d616681c9cda3073e60f07a459b5ce4e=1752654825"}
+[2026-01-14T22:37:14.660] [INFO] default - [GET /api/project] params:undefined
+[2026-01-14T22:37:25.658] [INFO] default - [GET /api/project/model_list] body:{}
+[2026-01-14T22:37:25.658] [INFO] default - [GET /api/project/model_list] query:{}
+[2026-01-14T22:37:25.659] [INFO] default - [GET /api/project/model_list] headers:{"host":"localhost:8080","connection":"keep-alive","s_t":"1768401445651","sec-ch-ua-platform":"\"Windows\"","sec-ch-ua":"\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"","sec-ch-ua-mobile":"?0","s_sign":"8b18d5a4766a877e686aa1405647b2ea","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","content-type":"application/json;charset=utf-8","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:8080/view/project-list","accept-encoding":"gzip, deflate, br, zstd","accept-language":"zh-CN,zh;q=0.9,en;q=0.8","cookie":"Hm_lvt_d616681c9cda3073e60f07a459b5ce4e=1752654825"}
+[2026-01-14T22:37:25.659] [INFO] default - [GET /api/project/model_list] params:undefined

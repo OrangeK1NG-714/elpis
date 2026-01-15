@@ -60,7 +60,8 @@ onMounted(() => {
   getModelList()
 })
 const onEnter = (projItem) => {
-  console.log(projItem, '跳转');
+   const {origin} = window.location
+   window.open(`${origin}/view/dashboard#${projItem.homePage}`)
 }
 </script>
 <style lang="less" scoped>

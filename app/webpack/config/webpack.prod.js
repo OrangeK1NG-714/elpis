@@ -29,8 +29,8 @@ const webpackConfig = merge.smart(baseConfig, {
     //生产环境的output配置
     output: {
         filename: 'js/[name]_[chunkhash:8].bundle.js',
-        path: path.join(process.cwd(), './app/public/dist/prod'),
-        publicPath: '/dist/prod',
+        path: path.join(process.cwd(), './app/public/dist/prod/'),
+        publicPath: '/dist/prod/',
         crossOriginLoading: 'anonymous',
     },
 

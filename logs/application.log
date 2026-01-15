@@ -1,20 +1,45 @@
-[2025-11-15T14:38:15.082] [INFO] default - [GET /api/project/model_list] body:{}
-[2025-11-15T14:38:15.083] [INFO] default - [GET /api/project/model_list] query:{}
-[2025-11-15T14:38:15.083] [INFO] default - [GET /api/project/model_list] headers:{"host":"127.0.0.1:4603","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","s_t":"1763188694644","s_sign":"1d07021c3763b8140e26f74728c1d01f","connection":"close"}
-[2025-11-15T14:38:15.084] [INFO] default - [GET /api/project/model_list] params:undefined
-[2025-11-15T14:40:12.805] [INFO] default - [GET /api/project/model_list] body:{}
-[2025-11-15T14:40:12.806] [INFO] default - [GET /api/project/model_list] query:{}
-[2025-11-15T14:40:12.806] [INFO] default - [GET /api/project/model_list] headers:{"host":"127.0.0.1:11980","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","s_t":"1763188812396","s_sign":"bcbefaa5c8a1740b47df1fe01fd9ed88","connection":"close"}
-[2025-11-15T14:40:12.806] [INFO] default - [GET /api/project/model_list] params:undefined
-[2025-11-15T14:40:27.199] [INFO] default - [GET /api/project/model_list] body:{}
-[2025-11-15T14:40:27.200] [INFO] default - [GET /api/project/model_list] query:{}
-[2025-11-15T14:40:27.200] [INFO] default - [GET /api/project/model_list] headers:{"host":"127.0.0.1:1580","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","s_t":"1763188826828","s_sign":"93c7a332cda55b5b24f029b2a4f00aca","connection":"close"}
-[2025-11-15T14:40:27.200] [INFO] default - [GET /api/project/model_list] params:undefined
-[2025-11-15T14:47:36.638] [INFO] default - [GET /api/project/model_list] body:{}
-[2025-11-15T14:47:36.639] [INFO] default - [GET /api/project/model_list] query:{}
-[2025-11-15T14:47:36.639] [INFO] default - [GET /api/project/model_list] headers:{"host":"127.0.0.1:11843","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","s_t":"1763189256287","s_sign":"78ae7fd3b16764edc478dcd3ba5017cf","connection":"close"}
-[2025-11-15T14:47:36.639] [INFO] default - [GET /api/project/model_list] params:undefined
-[2025-11-15T14:47:44.780] [INFO] default - [GET /api/project/model_list] body:{}
-[2025-11-15T14:47:44.781] [INFO] default - [GET /api/project/model_list] query:{}
-[2025-11-15T14:47:44.781] [INFO] default - [GET /api/project/model_list] headers:{"host":"127.0.0.1:10346","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","s_t":"1763189264412","s_sign":"6a328e1cb932cfc8e4ade9ac72363ef1","connection":"close"}
-[2025-11-15T14:47:44.781] [INFO] default - [GET /api/project/model_list] params:undefined
+[2026-01-15T10:56:02.983] [INFO] default - {"cause":{},"isOperational":true}
+[2026-01-15T10:56:02.984] [ERROR] default - [-- exception --]: OperationalError: template not found: dist/entry.page1.tpl
+    at createTemplate (D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:234:15)
+    ... 14 lines matching cause stack trace ...
+    at new Promise (<anonymous>) {
+  cause: Error: template not found: dist/entry.page1.tpl
+      at createTemplate (D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:234:15)
+      at next (D:\桌面\elpis-tencent\node_modules\nunjucks\src\lib.js:260:7)
+      at handle (D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:267:11)
+      at D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:276:9
+      at next (D:\桌面\elpis-tencent\node_modules\nunjucks\src\lib.js:258:7)
+      at Object.asyncIter (D:\桌面\elpis-tencent\node_modules\nunjucks\src\lib.js:263:3)
+      at Environment.getTemplate (D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:259:9)
+      at Environment.render (D:\桌面\elpis-tencent\node_modules\nunjucks\src\environment.js:295:10)
+      at Environment.promisified [as renderAsync] (D:\桌面\elpis-tencent\node_modules\bluebird\js\release\promisify.js:223:16)
+      at _callee$ (D:\桌面\elpis-tencent\node_modules\koa-nunjucks-2\compiled.js:109:64)
+      at tryCatch (D:\桌面\elpis-tencent\node_modules\regenerator-runtime\runtime.js:62:40)
+      at Generator.invoke [as _invoke] (D:\桌面\elpis-tencent\node_modules\regenerator-runtime\runtime.js:296:22)
+      at prototype.<computed> [as next] (D:\桌面\elpis-tencent\node_modules\regenerator-runtime\runtime.js:114:21)
+      at step (D:\桌面\elpis-tencent\node_modules\babel-runtime\helpers\asyncToGenerator.js:17:30)
+      at D:\桌面\elpis-tencent\node_modules\babel-runtime\helpers\asyncToGenerator.js:35:14
+      at new Promise (<anonymous>),
+  isOperational: true
+}
+[2026-01-15T10:56:02.984] [ERROR] default - [-- exception --]: undefined template not found: dist/entry.page1.tpl undefined
+[2026-01-15T10:56:06.233] [INFO] default - [GET /api/project/list] body:{}
+[2026-01-15T10:56:06.234] [INFO] default - [GET /api/project/list] query:{"proj_key":"pdd"}
+[2026-01-15T10:56:06.234] [INFO] default - [GET /api/project/list] headers:{"host":"localhost:8080","connection":"keep-alive","s_t":"1768445766213","sec-ch-ua-platform":"\"Windows\"","sec-ch-ua":"\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"","sec-ch-ua-mobile":"?0","s_sign":"3eba96ce601807a583e26f8175899925","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","content-type":"application/json;charset=utf-8","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:8080/view/dashboard","accept-encoding":"gzip, deflate, br, zstd","accept-language":"zh-CN,zh;q=0.9,en;q=0.8","cookie":"Hm_lvt_d616681c9cda3073e60f07a459b5ce4e=1752654825"}
+[2026-01-15T10:56:06.234] [INFO] default - [GET /api/project/list] params:undefined
+[2026-01-15T10:56:06.253] [INFO] default - [GET /api/project] body:{}
+[2026-01-15T10:56:06.254] [INFO] default - [GET /api/project] query:{"proj_key":"pdd"}
+[2026-01-15T10:56:06.254] [INFO] default - [GET /api/project] headers:{"host":"localhost:8080","connection":"keep-alive","s_t":"1768445766214","sec-ch-ua-platform":"\"Windows\"","sec-ch-ua":"\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"","sec-ch-ua-mobile":"?0","s_sign":"b2bd72fd1634387602371cf4637817ea","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","content-type":"application/json;charset=utf-8","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:8080/view/dashboard","accept-encoding":"gzip, deflate, br, zstd","accept-language":"zh-CN,zh;q=0.9,en;q=0.8","cookie":"Hm_lvt_d616681c9cda3073e60f07a459b5ce4e=1752654825"}
+[2026-01-15T10:56:06.254] [INFO] default - [GET /api/project] params:undefined
+[2026-01-15T10:57:20.211] [INFO] default - [GET /api/project/list] body:{}
+[2026-01-15T10:57:20.211] [INFO] default - [GET /api/project/list] query:{"proj_key":"pdd"}
+[2026-01-15T10:57:20.211] [INFO] default - [GET /api/project/list] headers:{"host":"localhost:8080","connection":"keep-alive","s_t":"1768445840200","sec-ch-ua-platform":"\"Windows\"","sec-ch-ua":"\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"","sec-ch-ua-mobile":"?0","s_sign":"703ece93cfb201390fb76bd77879a3c8","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","content-type":"application/json;charset=utf-8","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:8080/view/dashboard","accept-encoding":"gzip, deflate, br, zstd","accept-language":"zh-CN,zh;q=0.9,en;q=0.8","cookie":"Hm_lvt_d616681c9cda3073e60f07a459b5ce4e=1752654825"}
+[2026-01-15T10:57:20.212] [INFO] default - [GET /api/project/list] params:undefined
+[2026-01-15T10:57:20.215] [INFO] default - [GET /api/project] body:{}
+[2026-01-15T10:57:20.215] [INFO] default - [GET /api/project] query:{"proj_key":"pdd"}
+[2026-01-15T10:57:20.215] [INFO] default - [GET /api/project] headers:{"host":"localhost:8080","connection":"keep-alive","s_t":"1768445840201","sec-ch-ua-platform":"\"Windows\"","sec-ch-ua":"\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"","sec-ch-ua-mobile":"?0","s_sign":"2023e479ecd1dcd887c06cd9baf704cc","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","content-type":"application/json;charset=utf-8","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:8080/view/dashboard","accept-encoding":"gzip, deflate, br, zstd","accept-language":"zh-CN,zh;q=0.9,en;q=0.8","cookie":"Hm_lvt_d616681c9cda3073e60f07a459b5ce4e=1752654825"}
+[2026-01-15T10:57:20.216] [INFO] default - [GET /api/project] params:undefined
+[2026-01-15T11:37:36.231] [INFO] default - [GET /api/project/model_list] body:{}
+[2026-01-15T11:37:36.232] [INFO] default - [GET /api/project/model_list] query:{}
+[2026-01-15T11:37:36.233] [INFO] default - [GET /api/project/model_list] headers:{"host":"localhost:8080","connection":"keep-alive","s_t":"1768448256209","sec-ch-ua-platform":"\"Windows\"","sec-ch-ua":"\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"","sec-ch-ua-mobile":"?0","s_sign":"766eb4f10851b0ef82f800dc60033320","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36","accept":"application/json, text/plain, */*","content-type":"application/json;charset=utf-8","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-dest":"empty","referer":"http://localhost:8080/view/project-list","accept-encoding":"gzip, deflate, br, zstd","accept-language":"zh-CN,zh;q=0.9,en;q=0.8","cookie":"Hm_lvt_d616681c9cda3073e60f07a459b5ce4e=1752654825"}
+[2026-01-15T11:37:36.233] [INFO] default - [GET /api/project/model_list] params:undefined
