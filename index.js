@@ -2,6 +2,6 @@ const ElpisCore = require('./elpis-core')
 
 ElpisCore.start({
     name:'elpis',
-    homePage:'/',
+    homePage:'/view/project-list',
 })
 

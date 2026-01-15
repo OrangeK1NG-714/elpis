@@ -132,6 +132,7 @@ module.exports = {
                     reuseExistingChunk: true,//复用已有的公共 chunk
                 },
                 common: {//公共模块
+                    test: /[\\/]common|widgets[\\/]/,
                     name: 'common',//模块名称
                     minChunks: 2,//被2处引用即被归为公共模块
                     minSize: 1,//公共模块的最小分割文件大小，单位是字节

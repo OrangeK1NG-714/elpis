@@ -1,3 +1,5 @@
 node_modules
 config.local.js
 app/public/dist
+
+.vscode/settings.json
