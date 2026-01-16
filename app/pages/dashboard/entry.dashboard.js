@@ -22,16 +22,16 @@ routes.push({
     path: '/sider',
     component: () => import('./complex-view/sider-view/sider-view.vue'),
     children: [{
-        path: '/schema',
+        path: 'schema',
         component: () => import('./complex-view/schema-view/schema-view.vue')
     },
     {
-        path: '/iframe',
+        path: 'iframe',
         component: () => import('./complex-view/iframe-view/iframe-view.vue')
     },
     // custom 自定义路由
     {
-        path: '/todo',
+        path: 'todo',
         component: () => import('./todo/todo.vue')
     },
     ]

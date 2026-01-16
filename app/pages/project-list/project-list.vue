@@ -34,7 +34,7 @@
   </header-container>
 </template>
 <script setup>
-import headerContainer from '$widgets/header-container/header-container.vue';
+import HeaderContainer from '$widgets/header-container/header-container.vue';
 import { onMounted, ref } from 'vue'
 import $curl from '$common/curl.js'
 
