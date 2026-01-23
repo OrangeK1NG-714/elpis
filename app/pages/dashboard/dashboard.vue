@@ -72,7 +72,7 @@ const onMenuSelect = (menuItem) => {
     custom: customConfig?.path
   }
   router.push({
-    path: pathMap[moduleType],
+    path: `/view/dashboard${pathMap[moduleType]}`,
     query: {
       proj_key: route.query.proj_key,
       key,

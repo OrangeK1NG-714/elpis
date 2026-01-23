@@ -9,7 +9,7 @@ import './assets/custom.css'
 //引入 pinia
 import pinia from '$store'
 
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 /**
  * vue 页面主入口，用于启动 vue
@@ -35,7 +35,7 @@ export default (pageComponent, { routes, libs } = {}) => {
     if (routes && routes.length) {
         //引入页面路由
         const router = createRouter({
-            history: createWebHashHistory(),//采用hash模式  #/xxx
+            history: createWebHistory(),//采用history模式
             routes,
         })
         //应用路由
