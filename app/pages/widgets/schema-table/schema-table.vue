@@ -58,6 +58,10 @@ const props = defineProps({
      */
     api: String,
     /**
+     * api 请求参数，请求 API 时携带
+     */
+    apiParams: Object,
+    /**
      * buttons 操作按钮相关配置，结构如下:
         [{
             label: '',// 按钮中文名
@@ -69,7 +73,7 @@ const props = defineProps({
     buttons: Array
 })
 
-const { schema, api, buttons } = toRefs(props)
+const { schema, api, buttons ,apiParams} = toRefs(props)
 
 const emit = defineEmits(['operate'])
 
@@ -89,7 +93,7 @@ onMounted(() => {
     initData()
 })
 
-watch([schema, api],() => {
+watch([schema, api, apiParams],() => {
     initData()
 }, { deep: true })
 
@@ -108,7 +112,13 @@ const loadTableData = async () => {
         timerId = null
     }, 100)
 }
-
+const queryParams = computed(() => {
+    return {
+        ...apiParams.value,
+        page: currentPage.value,
+        size: pageSize.value
+    }
+})
 const fetchTableData = async () => {
     if (!api.value) { return }
 
@@ -118,10 +128,7 @@ const fetchTableData = async () => {
     const res = await $curl({
         method: 'get',
         url: `${api.value}/list`,
-        query: {
-            page: currentPage.value,
-            size: pageSize.value
-        }
+        query: queryParams.value,
     })
 
     hideLoading()

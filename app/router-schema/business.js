@@ -15,17 +15,20 @@ module.exports = {
             }
         }
     },
-    '/api/product': {
+    '/api/proj/product': {
         delete: {
             body: {
                 type: 'object',
                 properties: {
-                    product_id:{
+                    product_id: {
                         type: 'string'
                     }
                 },
                 required: ['product_id']
             }
         }
+    },
+    '/api/proj/product_enum/list': {
+        get: {}
     }
 }

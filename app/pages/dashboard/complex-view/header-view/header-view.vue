@@ -69,7 +69,7 @@ watch(() => route.query.key, () => {
 })
 watch(() => menuStore.menuList, () => {
   setActiveKey()
-},{deep:true})
+}, { deep: true })
 onMounted(() => {
   setActiveKey()
 })
@@ -83,10 +83,9 @@ const onMenuSelect = (menuKey) => {
 }
 const handleProjectCommand = (event) => {
   const projectItem = projectStore.projectList.find(item => item.key === event)
-  if(!projectItem || !projectItem.homePage) {return}
-  const {origin,pathname} = window.location
-  window.location.replace(`${origin}${pathname}#${projectItem.homePage}`)
-  window.location.reload()
+  if (!projectItem || !projectItem.homePage) { return }
+  const { host } = window.location
+  window.location.replace(`http://${host}/view/dashboard${projectItem.homePage}`)
 }
 </script>
 <style lang="less" scoped>

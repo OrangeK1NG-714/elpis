@@ -23,6 +23,10 @@ module.exports = {
                         label: '商品名称',
                         tableOption: {
                             width: 200,
+                        },
+                        searchOption: {
+                            comType: 'dynamicSelect',
+                            api: '/api/proj/product_enum/list',
                         }
                     },
                     price: {
@@ -30,19 +34,45 @@ module.exports = {
                         label: '价格',
                         tableOption: {
                             width: 200,
+                        },
+                        searchOption: {
+                            comType: 'select',
+                            enumList: [{
+                                label: '全部',
+                                value: -999,
+                            }, {
+                                label: '￥39.9',
+                                value: 39.9,
+                            },
+                            {
+                                label: '￥59.9',
+                                value: 59.9,
+                            },
+                            {
+                                label: '￥79.9',
+                                value: 79.9,
+                            },
+                            ]
                         }
+
                     },
                     inventory: {
                         type: 'number',
                         label: '库存',
                         tableOption: {
                             width: 200,
+                        },
+                        searchOption: {
+                            comType: 'input',
                         }
                     },
                     create_time: {
                         type: 'string',
                         label: '创建时间',
-                        tableOption: {}
+                        tableOption: {},
+                        searchOption: {
+                            comType: 'dateRange',
+                        }
                     },
                 },
                 tableConfig: {

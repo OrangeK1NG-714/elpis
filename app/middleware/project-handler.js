@@ -5,7 +5,7 @@
 module.exports = (app) => {
     return async (ctx, next) => {
         // 只对 业务API 进行 proj_key处理
-        if (ctx.path.indexOf('/api/proj') < 0) {
+        if (ctx.path.indexOf('/api/proj/') < 0) {
             return await next()
         }
         // 获取 projKey

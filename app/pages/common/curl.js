@@ -24,7 +24,7 @@ const curl = ({
         s_sign: md5(`${signKey}_${st}`),
         s_t: st
     }
-    if (url.indexOf('/api/proj') > -1 && window.projKey) {
+    if (url.indexOf('/api/proj/') > -1 && window.projKey) {
         dtoHeaders.proj_key = window.projKey
     }
     //构造请求参数(把参数转化为 axios 参数)

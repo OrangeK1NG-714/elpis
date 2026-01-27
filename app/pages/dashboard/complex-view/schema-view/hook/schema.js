@@ -8,6 +8,8 @@ export const useSchema = () => {
     const api = ref('')
     const tableSchema = ref({})
     const tableConfig = ref({})
+    const searchSchema = ref({})
+    const searchConfig = ref({})
 
     //构造 schemaConfig 相关配置，输送给 schemaView 解释
     const buildData = () => {
@@ -24,9 +26,21 @@ export const useSchema = () => {
             api.value = sConfig.api ?? ''
             tableSchema.value = {}
             tableConfig.value = undefined
+            searchSchema.value = {}
+            searchConfig.value = undefined
             nextTick(() => {
-                tableSchema.value = buildDtoSchema(configSchema, 'table')                
-                tableConfig.value = sConfig.schema.tableConfig//存在问题                
+                // 构建 tableSchema 和 searchSchema
+                tableSchema.value = buildDtoSchema(configSchema, 'table')
+                tableConfig.value = sConfig.schema.tableConfig//存在问题     
+                // 构造searchSchema 和 searchConfig
+                const dtoSearchSchema = buildDtoSchema(configSchema, 'search')
+                for (const key in dtoSearchSchema.properties) {
+                    if (route.query[key] !== undefined) {
+                        dtoSearchSchema.properties[key].option.default = route.query[key]
+                    }
+                }
+                searchSchema.value = dtoSearchSchema
+                searchConfig.value = sConfig.schema.searchBarConfig//存在问题                
             })
         }
     }
@@ -73,6 +87,8 @@ export const useSchema = () => {
     return {
         api,
         tableSchema,
-        tableConfig
+        tableConfig,
+        searchSchema,
+        searchConfig
     }
 }

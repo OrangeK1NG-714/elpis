@@ -8,8 +8,13 @@
             </el-button>
         </el-row>
         <!-- schema-table (组件widget)-->
-        <schema-table ref="schemaTableRef" :schema="tableSchema" :api="api" :buttons="tableConfig?.rowButtons ?? []"
-            @operate="operationHandler">
+        <schema-table 
+        ref="schemaTableRef" 
+        :schema="tableSchema" 
+        :api="api" 
+        :buttons="tableConfig?.rowButtons ?? []"
+        :apiParams="apiParams"    
+        @operate="operationHandler">
         </schema-table>
     </el-card>
 </template>
@@ -22,6 +27,7 @@ import SchemaTable from '$widgets/schema-table/schema-table.vue'
 const emit = defineEmits(['operate'])
 const {
     api,
+    apiParams,
     tableConfig,
     tableSchema
 } = inject('schemaViewData')
