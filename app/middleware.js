@@ -27,11 +27,8 @@ module.exports =(app)=>{
     app.use(app.middlewares.errorHandler)
 
     //签名合法性校验
-    app.use(app.middlewares.apiSignVerify)
+    // app.use(app.middlewares.apiSignVerify)
 
     //引入API参数校验
     app.use(app.middlewares.apiParamsVerify)
-    
-    //引入项目处理中间件
-    app.use(app.middlewares.projectHandler)
 }
