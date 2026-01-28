@@ -1,7 +1,7 @@
 module.exports = {
     name: '拼多多',
     desc: '拼多多电商系统',
-    homePage: '/todo?proj_key=pdd&key=product',
+    homePage: '/schema?proj_key=pdd&key=product',
     menu: [
         {
             key: 'product',
@@ -10,6 +10,11 @@ module.exports = {
         {
             key: 'client',
             name: '客户管理(拼多多)',
+            moduleType: 'schema',
+            schemaConfig: {
+                api: '/api/client',
+                schema: {}
+            }
         },
         {
             key: 'data',
@@ -34,6 +39,38 @@ module.exports = {
                     iframeConfig: {
                         path: 'https://www.baidu.com',
                     }
+                },
+                {
+                    key: 'categories',
+                    name: '分类数据',
+                    menuType: 'group',
+                    subMenu: [{
+                        key: 'category-1',
+                        name: '一级分类',
+                        menuType: 'module',
+                        moduleType: 'custom',
+                        customConfig: {
+                            path: '/todo',
+                        }
+                    },
+                    {
+                        key: 'category-2',
+                        name: '二级分类',
+                        menuType: 'module',
+                        moduleType: 'iframe',
+                        iframeConfig: {
+                            path: 'https://www.baidu.com',
+                        }
+                    }, {
+                        key: 'tags',
+                        name: '标签',
+                        menuType: 'module',
+                        moduleType: 'schema',
+                        schemaConfig: {
+                            api: '/api/client',
+                            schema: {}
+                        }
+                    }]
                 }]
             }
         },
