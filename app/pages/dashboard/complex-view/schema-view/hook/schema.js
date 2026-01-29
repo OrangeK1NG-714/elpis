@@ -7,10 +7,9 @@ export const useSchema = () => {
 
     const api = ref('')
     const tableSchema = ref({})
-    const tableConfig = ref()
+    const tableConfig = ref({})
     const searchSchema = ref({})
-    const searchConfig = ref()
-    const components = ref({})
+    const searchConfig = ref({})
 
     //构造 schemaConfig 相关配置，输送给 schemaView 解释
     const buildData = () => {
@@ -29,7 +28,6 @@ export const useSchema = () => {
             tableConfig.value = undefined
             searchSchema.value = {}
             searchConfig.value = undefined
-
             nextTick(() => {
                 // 构建 tableSchema 和 searchSchema
                 tableSchema.value = buildDtoSchema(configSchema, 'table')
@@ -42,20 +40,7 @@ export const useSchema = () => {
                     }
                 }
                 searchSchema.value = dtoSearchSchema
-                searchConfig.value = sConfig.schema.searchBarConfig//存在问题
-
-                //构造 components = {comKey: {schema, config}}
-                const { componentConfig } = sConfig.schema
-                if (componentConfig && Object.keys(componentConfig).length > 0) {
-                    const dtoComponents = {}
-                    for (const comName in componentConfig) {
-                        dtoComponents[comName] = {
-                            schema: buildDtoSchema(configSchema, comName),
-                            config: componentConfig[comName]
-                        }
-                    }
-                    components.value = dtoComponents
-                }
+                searchConfig.value = sConfig.schema.searchBarConfig//存在问题                
             })
         }
     }
@@ -80,13 +65,6 @@ export const useSchema = () => {
                 }
                 // 处理 comName Option
                 dtoProps = Object.assign({}, dtoProps, { option: props[`${comName}Option`] })
-
-                // 处理required 字段
-                const { required } = _schema
-                if (required && required.find(pk => pk === key)) {
-                    dtoProps.option.required = true
-                }
-
                 dtoSchema.properties[key] = dtoProps
             }
         }
@@ -111,7 +89,6 @@ export const useSchema = () => {
         tableSchema,
         tableConfig,
         searchSchema,
-        searchConfig,
-        components,
+        searchConfig
     }
 }
