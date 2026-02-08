@@ -2,7 +2,7 @@
     <div class="schema-table">
         <el-table v-if="schema && schema.properties" v-loading="loading" :data="tableData" class="table">
             <template v-for="(schemaItem, key) in schema.properties">
-                <el-table-column v-if="schemaItem.option.visiable !== false" :key="key" :prop="key"
+                <el-table-column v-if="schemaItem.option.visible !== false" :key="key" :prop="key"
                     :label="schemaItem.label" v-bind="schemaItem.option"></el-table-column>
             </template>
             <el-table-column v-if="buttons?.length > 0" label="操作" fixed="right" :width="operationWidth">

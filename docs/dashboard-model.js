@@ -73,10 +73,26 @@
 
                                 // comType === 'select' 时生效
                                 enumList: [], //枚举列表
+                            },
+                            // 字段在 editForm 表单中的相关配置
+                            editFormOption:{
+                                ...eleComponentConfig, //标准 el-component-column 配置
+                                comType: '', // 控件类型 input/select/input-number
+                                visible: true,// 是否展示(true/false)，默认为true
+                                disabled: false, // 是否禁用(true/false),默认为false
+                                default: '', // 默认值
+
+                                // comType === 'select' 时生效
+                                enumList: [], //枚举列表
+                            },
+                            detailPanelOption:{
+                                ...eleComponentConfig,//标准 el-component-column 配置
+                                
                             }
                         },
                         ...
-                    }
+                    },
+                    required: [],// 标记哪些字段是必填项
                 },
                 tableConfig: {
                     headerButtons: [{
@@ -115,9 +131,19 @@
                    createForm:{
                     title:'',//表单标题
                     saveBtnText:'',// 保存按钮文案 
+                   },
+                   // edit-form 表单相关配置
+                   editForm:{
+                    mainKey:'',// 表单主键，用于唯一标识要修改的数据对象
+                    title: '',//表单标题
+                    saveBtnText: '',// 保存按钮文案
+                   },
+                   // detail-panel 相关配置
+                   detailPanel:{
+                     mainKey:'',// 表单主键，用于唯一标识要修改的数据对象
+                    title: '',//表单标题
                    }
                    // ...支持用户动态扩展
-
                 }
             },
         }, ...]

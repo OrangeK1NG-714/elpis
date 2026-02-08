@@ -9,6 +9,7 @@ module.exports = {
             api: '/api/proj/product',
             schema: {
                 type: 'object',
+                required: ['product_name'],
                 properties: {
                     product_id: {
                         type: 'string',
@@ -16,22 +17,40 @@ module.exports = {
                         tableOption: {
                             width: 300,
                             'show-overflow-tooltip': true
-                        }
+                        },
+                        editFormOption: {
+                            comType: 'input',
+                            disabled: true,
+                        },
+                        detailPanelOption: {},
                     },
                     product_name: {
                         type: 'string',
                         label: '商品名称',
+                        maxLength:10,
+                        minLength:3,
                         tableOption: {
                             width: 200,
                         },
                         searchOption: {
                             comType: 'dynamicSelect',
                             api: '/api/proj/product_enum/list',
-                        }
+                        },
+                        createFormOption: {
+                            comType: 'input',
+                            default: '新课程',
+                        },
+                        editFormOption: {
+                            comType: 'input',
+                            // visible: false,
+                        },
+                        detailPanelOption: {},
                     },
                     price: {
                         type: 'number',
                         label: '价格',
+                        maximum:1000,
+                        minimum:30,
                         tableOption: {
                             width: 200,
                         },
@@ -53,8 +72,14 @@ module.exports = {
                                 value: 79.9,
                             },
                             ]
-                        }
-
+                        },
+                        createFormOption: {
+                            comType: 'inputNumber'
+                        },
+                        editFormOption: {
+                            comType: 'inputNumber'
+                        },
+                        detailPanelOption: {},
                     },
                     inventory: {
                         type: 'number',
@@ -64,7 +89,27 @@ module.exports = {
                         },
                         searchOption: {
                             comType: 'input',
-                        }
+                        },
+                        createFormOption: {
+                            comType: 'select',
+                            enumList: [{
+                                label: '100',
+                                value: 100,
+                            },
+                            {
+                                label: '200',
+                                value: 200,
+                            },
+                            {
+                                label: '300',
+                                value: 300,
+                            },
+                            ]
+                        },
+                        editFormOption: {
+                            comType: 'inputNumber',
+                        },
+                        detailPanelOption: {},
                     },
                     create_time: {
                         type: 'string',
@@ -72,19 +117,35 @@ module.exports = {
                         tableOption: {},
                         searchOption: {
                             comType: 'dateRange',
-                        }
+                        },
+                        detailPanelOption: {},
                     },
+                    required:['product_name']
                 },
                 tableConfig: {
                     headerButtons: [{
                         label: '新增商品',
                         eventKey: 'showComponent',
+                        eventOption: {
+                            comName: 'createForm',
+                        },
                         type: 'primary',
                         plain: true,
                     }],
-                    rowButtons: [{
+                    rowButtons: [
+                        {
+                        label: '查看详情',
+                        eventKey: 'showComponent',
+                        eventOption: {
+                            comName: 'detailPanel'
+                        },
+                        type: 'primary',
+                    }, {
                         label: '修改',
                         eventKey: 'showComponent',
+                        eventOption: {
+                            comName: 'editForm'
+                        },
                         type: 'warning',
                     }, {
                         label: '删除',
@@ -95,8 +156,22 @@ module.exports = {
                             }
                         },
                         type: 'danger',
+                    }]
+                },
+                componentConfig: {
+                    createForm: {
+                        title: '新增商品',
+                        saveBtnText: '新增商品',
+                    },
+                    editForm: {
+                        mainKey: 'product_id',
+                        title: '修改商品',
+                        saveBtnText: '修改商品',
+                    },
+                    detailPanel:{
+                        mainKey:'product_id',
+                        title:'商品详情',
                     }
-                    ]
                 }
             }
         }

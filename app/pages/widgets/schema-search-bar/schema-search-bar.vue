@@ -3,7 +3,7 @@
         <!-- 动态组件 -->
         <el-form-item v-for="(schemaItem, key) in schema.properties" :key="key" :label="schemaItem.label">
             <!-- 展示子组件 -->
-            <component :ref="handleSearchComList" :is="SearchItemConfig[schemaItem.option?.comType]?.component"
+            <component :ref="searchComList" :is="SearchItemConfig[schemaItem.option?.comType]?.component"
                 :schemaKey="key" :schema="schemaItem" @loaded="handleChildLoaded" >
             </component>
         </el-form-item>
@@ -46,9 +46,6 @@ const { schema } = toRefs(props)
 const emit = defineEmits(['load', 'search', 'reset'])
 
 const searchComList = ref([])
-const handleSearchComList = (el) => {
-    searchComList.value.push(el)
-}
 
 const getValue = () => {
     let dtoObj = {}
@@ -70,8 +67,6 @@ const handleChildLoaded = () => {
 }
 
 const search = () => {
-    console.log(123);
-    
     emit('search', getValue())
 }
 const reset = () => {
