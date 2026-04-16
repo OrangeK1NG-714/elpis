@@ -1,5 +1,5 @@
 {
-  "name": "elpis",
+  "name": "@richardking777/elpis",
   "version": "1.0.0",
   "description": "一个企业级应用框架，通过全栈实现",
   "main": "index.js",
@@ -79,6 +79,7 @@
     "style-loader": "^0.14.1",
     "supertest": "^4.0.2",
     "terser-webpack-plugin": "^2.3.5",
+    "thread-loader": "^4.0.4",
     "url-loader": "^4.1.1",
     "validate-commit-msg": "~2.14.0",
     "vue-loader": "^17.2.2",

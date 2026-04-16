@@ -15,15 +15,17 @@ const { sep } = path;
  * 生产配置 config/config.prod.js
  */
 module.exports = (app) => {
-    //找到config/目录
-    const configPath = path.resolve(app.baseDir, `.${sep}config`)
+    // elpis config 目录及相关文件    
+    const elpisConfigPath = path.resolve(__dirname, `..${sep}..${sep}config`)
+    let defaultConfig = require(path.resolve(elpisConfigPath, `.${sep}config.default.js`))
 
-    console.log(configPath, 'configPath');
-
-    //获取default.config
-    let defaultConfig = {};
+    //业务 config 目录及相关文件
+    const businessConfigPath = path.resolve(process.cwd(),`.${sep}config`)
     try {
-        defaultConfig = require(path.resolve(configPath, `.${sep}config.default.js`))
+        defaultConfig = {
+            ...defaultConfig,
+            ...require(path.resolve(businessConfigPath, `.${sep}config.default.js`))
+        }
     } catch (e) {
         console.log('default-config not found')
     }
@@ -31,17 +33,17 @@ module.exports = (app) => {
     try {
         if (app.env.isLocal())//本地环境
         {
-            envConfig = require(path.resolve(configPath, `.${sep}config.local.js`))
+            envConfig = require(path.resolve(businessConfigPath, `.${sep}config.local.js`))
             console.log('local-config found');
         }
         if (app.env.isBeta())//测试环境
         {
-            envConfig = require(path.resolve(configPath, `.${sep}config.beta.js`))
+            envConfig = require(path.resolve(businessConfigPath, `.${sep}config.beta.js`))
             console.log('beta-config found');
         }
         if (app.env.isProd())//生产环境
         {
-            envConfig = require(path.resolve(configPath, `.${sep}config.prod.js`))
+            envConfig = require(path.resolve(businessConfigPath, `.${sep}config.prod.js`))
             console.log('prod-config found');
         }
     } catch (e) {
