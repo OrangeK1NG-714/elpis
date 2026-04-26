@@ -41,7 +41,7 @@ const webpackConfig = merge.smart(baseConfig, {
                 MiniCssExtractPlugin.loader,
                 {
                     loader: require.resolve('thread-loader'),
-                    options:{
+                    options: {
                         workers: os.cpus().length,//根据 cpu 核心数设置线程数
                         workerParallelJobs: 1,//每个线程并行处理的任务数
                         poolTimeout: 2000,//线程池超时时间，单位毫秒
@@ -52,27 +52,29 @@ const webpackConfig = merge.smart(baseConfig, {
         }, {
             test: /\.js$/,
             include: [
-                //只对业务代码进行 babel，加快webpack打包速度
-                path.resolve(__dirname, '../../pages/'),
+                //处理elpis  目录
+                path.resolve(__dirname, '../../pages'),
+                //处理业务目录 目录
+                path.resolve(process.cwd(), './app/pages'),
             ],
             use: [
-               {
-                loader: require.resolve('thread-loader'),
-                options:{
-                    workers: os.cpus().length,//根据 cpu 核心数设置线程数
-                    workerParallelJobs: 50,//每个线程并行处理的任务数
-                    poolTimeout: 2000,//线程池超时时间，单位毫秒
+                {
+                    loader: require.resolve('thread-loader'),
+                    options: {
+                        workers: os.cpus().length,//根据 cpu 核心数设置线程数
+                        workerParallelJobs: 50,//每个线程并行处理的任务数
+                        poolTimeout: 2000,//线程池超时时间，单位毫秒
+                    }
                 }
-               }
-               ,{
-                loader: require.resolve('babel-loader'),
-                options: {
-                    presets: [require.resolve('@babel/preset-env')],
-                    plugins: [
-                        require.resolve('@babel/plugin-transform-runtime')
-                    ]
+                , {
+                    loader: require.resolve('babel-loader'),
+                    options: {
+                        presets: [require.resolve('@babel/preset-env')],
+                        plugins: [
+                            require.resolve('@babel/plugin-transform-runtime')
+                        ]
+                    }
                 }
-               }
             ]
         },
         ]

@@ -1,6 +1,6 @@
 import { ref, watch, onMounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
-import { useMenuStore } from '$store/menu.js'
+import { useMenuStore } from '$elpisStore/menu.js'
 export const useSchema = () => {
     const route = useRoute()
     const menuStore = useMenuStore()

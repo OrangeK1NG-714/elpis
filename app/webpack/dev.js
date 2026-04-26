@@ -11,6 +11,8 @@ module.exports = () => {
     //从webpack.dev.js 获取 webpack 配置 和devServer 配置
     const { webpackConfig, DEV_SERVER_CONFIG } = require('./config/webpack.dev.js');
 
+    console.log('xxxxx',webpackConfig);
+    
     const app = express();
 
     const compiler = webpack(webpackConfig);

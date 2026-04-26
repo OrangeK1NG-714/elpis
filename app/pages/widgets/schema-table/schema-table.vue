@@ -31,7 +31,7 @@ import {
     onMounted,
 } from 'vue';
 
-import $curl from '$common/curl.js'
+import $curl from '$elpisCommon/curl.js'
 
 const props = defineProps({
     /**
