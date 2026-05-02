@@ -51,7 +51,7 @@ module.exports = (app) => {
     const modelList = [];
 
     //遍历当前文件夹,构造模型数据结构，挂载到哦modelList 上
-    const modelPath = path.resolve(app.baseDir, `.${sep}model`);
+    const modelPath = path.resolve(process.cwd(), `.${sep}model`);
     const fileList = glob.sync(path.resolve(modelPath, `.${sep}**${sep}**.js`));
     fileList.forEach(file => {
         if (file.indexOf('index.js') > -1) { return }

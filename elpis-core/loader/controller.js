@@ -16,13 +16,23 @@ const { sep } = path
  * =>app.controller.customModule.customController
  */
 module.exports = (app) => {
-    //读取 app/controller/**/** .js下所有文件
-    const controllerPath = path.resolve(app.businessPath, `.${sep}controller`)
-    const fileList = glob.sync(path.resolve(controllerPath, `.${sep}**${sep}**.js`))
-
-    //遍历所有文件目录，把内容加载在app.controller下
     const controller = {}
-    fileList.forEach((file) => {
+    //读取 elpis/app/controller/**/** .js下所有文件
+    const elpisControllerPath = path.resolve(__dirname, `..${sep}..${sep}app${sep}controller`)
+    const elpisFileList = glob.sync(path.resolve(elpisControllerPath, `.${sep}**${sep}**.js`))
+    elpisFileList.forEach(file =>{
+        handleFile(file)
+    })
+    
+    //读取 业务/app/controller/**/** .js下所有文件
+    const businessControllerPath = path.resolve(app.businessPath, `.${sep}controller`)
+    const businessFileList = glob.sync(path.resolve(businessControllerPath, `.${sep}**${sep}**.js`))
+    businessFileList.forEach(file =>{
+        handleFile(file)
+    })
+    
+    //把内容加载在app.controller下
+    function handleFile(file) {
         //提取文件名称
         let name = path.resolve(file);
         //截取路径app/controller/custom-module/custom-controller.js=>custom-module/custom-controller
@@ -30,7 +40,7 @@ module.exports = (app) => {
 
         //把路径中的-改为驼峰式custom-module/custom-controller =>customModule.customController
         name = name.replace(/[_-][a-z]/ig, (s) => s.substring(1).toUpperCase())
-console.log(name,'name');
+        console.log(name, 'name');
 
         //挂载controller到内存app对象中
         let tempController = controller;
@@ -41,7 +51,7 @@ console.log(name,'name');
             if (i === len - 1) {
                 const ControllerModule = require(path.resolve(file))(app)
                 // console.log(ControllerModule,'ControllerModule');
-                tempController[names[i]] =new ControllerModule()
+                tempController[names[i]] = new ControllerModule()
             } else {
                 if (!tempController[names[i]]) {
                     tempController[names[i]] = {}
@@ -49,8 +59,8 @@ console.log(name,'name');
                 tempController = tempController[name[i]]
             }
         }
-    })
+    }
     // console.log(controller,'controller已加载123131');
-    
+
     app.controller = controller
 }

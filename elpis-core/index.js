@@ -67,13 +67,22 @@ module.exports = {
         extendLoader(app)
         // console.log(app);
 
-        // console.log(app.extend);
-        //注册全局中间件
+        //注册elpis全局中间件
+        const elpisMiddlewarePath = path.resolve(__dirname,`..${sep}app${sep}middleware.js`)
+        const elpisMiddleware = require(elpisMiddlewarePath)
+        try {
+            elpisMiddleware(app)
+            console.log(`-- [start] load global elpis middleware done --`);
+        } catch (e) {
+            console.log(`[exception] there is no global elpis middleware file.`);
+        }
+
+        //注册业务全局中间件
         try {
             require(`${app.businessPath}${sep}middleware.js`)(app)
-            console.log('注册全局中间件成功');
+            console.log(`-- [start] load global business middleware done --`);
         } catch (e) {
-            console.log('注册全局中间件失败');
+            console.log(`[exception] there is no global business middleware file.`);
         }
         //注册路由
         routerLoader(app)

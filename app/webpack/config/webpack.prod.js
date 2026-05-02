@@ -1,7 +1,7 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const os = require('os');
-const HappyPack = require('happypack');
+// const HappyPack = require('happypack');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -10,13 +10,13 @@ const HtmlWebpackInjectAttributesPlugin = require('html-webpack-inject-attribute
 
 const TerserPlugin = require('terser-webpack-plugin');
 
-//多线程 build 设置 
-const happypackCommonConfig = {
-    debug: false,
-    threadPool: HappyPack.ThreadPool({
-        size: os.cpus().length
-    }),
-}
+// //多线程 build 设置 
+// const happypackCommonConfig = {
+//     debug: false,
+//     threadPool: HappyPack.ThreadPool({
+//         size: os.cpus().length
+//     }),
+// }
 
 //基类配置
 const baseConfig = require('./webpack.base.js');
@@ -39,16 +39,42 @@ const webpackConfig = merge.smart(baseConfig, {
             test: /\.css$/,
             use: [
                 MiniCssExtractPlugin.loader,
-                'happypack/loader?id=css',
+                {
+                    loader: require.resolve('thread-loader'),
+                    options: {
+                        workers: os.cpus().length,//根据 cpu 核心数设置线程数
+                        workerParallelJobs: 1,//每个线程并行处理的任务数
+                        poolTimeout: 2000,//线程池超时时间，单位毫秒
+                    }
+                },
+                require.resolve('css-loader'),
             ]
         }, {
             test: /\.js$/,
             include: [
-                //只对业务代码进行 babel，加快webpack打包速度
+                //处理elpis  目录
+                path.resolve(__dirname, '../../pages'),
+                //处理业务目录 目录
                 path.resolve(process.cwd(), './app/pages'),
             ],
             use: [
-                'happypack/loader?id=js'
+                {
+                    loader: require.resolve('thread-loader'),
+                    options: {
+                        workers: os.cpus().length,//根据 cpu 核心数设置线程数
+                        workerParallelJobs: 50,//每个线程并行处理的任务数
+                        poolTimeout: 2000,//线程池超时时间，单位毫秒
+                    }
+                }
+                , {
+                    loader: require.resolve('babel-loader'),
+                    options: {
+                        presets: [require.resolve('@babel/preset-env')],
+                        plugins: [
+                            require.resolve('@babel/plugin-transform-runtime')
+                        ]
+                    }
+                }
             ]
         },
         ]
@@ -73,28 +99,28 @@ const webpackConfig = merge.smart(baseConfig, {
         //优化并压缩 css 资源
         new CSSMinimizerPlugin(),
 
-        //多线程打包 JS,加快打包速度
-        new HappyPack({
-            ...happypackCommonConfig,
-            id: 'js',
-            loaders: [`babel-loader?${JSON.stringify({
-                presets: ['@babel/preset-env'],
-                plugins: [
-                    '@babel/plugin-transform-runtime'
-                ]
-            })}`],
-        }),
-        //多线程打包 CSS，加快打包速度
-        new HappyPack({
-            ...happypackCommonConfig,
-            id: 'css',
-            loaders: [{
-                path: 'css-loader',
-                options: {
-                    importLoaders: 1,
-                }
-            }],
-        }),
+        // //多线程打包 JS,加快打包速度
+        // new HappyPack({
+        //     ...happypackCommonConfig,
+        //     id: 'js',
+        //     loaders: [`${require.resolve('babel-loader')}?${JSON.stringify({
+        //         presets: [require.resolve('@babel/preset-env')],
+        //         plugins: [
+        //             require.resolve('@babel/plugin-transform-runtime')
+        //         ]
+        //     })}`],
+        // }),
+        // //多线程打包 CSS，加快打包速度
+        // new HappyPack({
+        //     ...happypackCommonConfig,
+        //     id: 'css',
+        //     loaders: [{
+        //         path: require.resolve('css-loader'),
+        //         options: {
+        //             importLoaders: 1,
+        //         }
+        //     }],
+        // }),
         //浏览器在请求资源时不发送用户的身份凭证
         new HtmlWebpackInjectAttributesPlugin({
             crossorigin: 'anonymous',
