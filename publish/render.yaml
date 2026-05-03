@@ -1,0 +1,43 @@
+services:
+  # Web 服务
+  - type: web
+    name: elpis-tencent
+    env: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: _ENV
+        value: prod
+      - key: PORT
+        value: 7001
+      - key: DB_HOST
+        fromDatabase:
+          name: elpis-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: elpis-db
+          property: port
+      - key: DB_USER
+        fromDatabase:
+          name: elpis-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: elpis-db
+          property: password
+      - key: DB_DATABASE
+        fromDatabase:
+          name: elpis-db
+          property: database
+      - key: JWT_SECRET
+        generateValue: true
+
+# MySQL 数据库
+databases:
+  - name: elpis-db
+    databaseName: elpis_db
+    user: elpis
+    plan: starter

@@ -5,7 +5,15 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --quiet --ext js,vue .",
-    "test": "set _ENV=local && mocha ./test/**/*.test.js"
+    "test": "set _ENV=local && mocha ./test/**/*.test.js",
+    "build:prod": "node app/webpack/prod.js",
+    "build:dev": "node app/webpack/dev.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "docker:build": "docker build -t elpis-tencent .",
+    "docker:run": "docker-compose up -d",
+    "docker:stop": "docker-compose down",
+    "docker:logs": "docker-compose logs -f elpis-app"
   },
   "repository": {
     "type": "git",

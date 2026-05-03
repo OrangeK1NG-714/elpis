@@ -1,0 +1,61 @@
+name: PR Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  pr-validation:
+    name: PR Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check commit message format
+        run: |
+          # 检查最近的 commit message 是否符合规范
+          git log --format=%B -n 1 ${{ github.event.pull_request.head.sha }} | head -n 1 | grep -E "^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .{1,50}"
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
+        env:
+          _ENV: local
+
+      - name: Check for TODO/FIXME
+        run: |
+          if git diff origin/${{ github.base_ref }}...HEAD | grep -E "^\+.*TODO|^\+.*FIXME"; then
+            echo "⚠️ Warning: New TODO or FIXME found in this PR"
+          fi
+
+      - name: Comment PR
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const status = '${{ job.status }}';
+            const body = status === 'success' 
+              ? '✅ All checks passed! Ready for review.' 
+              : '❌ Some checks failed. Please review the logs.';
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });

@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  # Elpis 应用服务（开发环境）
+  elpis-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: elpis-tencent-dev
+    restart: unless-stopped
+    ports:
+      - "7001:7001"
+      - "9229:9229"  # Node.js 调试端口
+    environment:
+      - NODE_ENV=development
+      - _ENV=local
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=elpis
+      - DB_PASSWORD=elpis_password
+      - DB_DATABASE=elpis_db
+    depends_on:
+      - mysql
+    networks:
+      - elpis-network
+    volumes:
+      # 挂载源代码，支持热更新
+      - .:/app
+      - /app/node_modules
+      - ./logs:/app/logs
+    command: npm run dev
+
+  # MySQL 数据库服务
+  mysql:
+    image: mysql:8.0
+    container_name: elpis-mysql-dev
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=elpis_db
+      - MYSQL_USER=elpis
+      - MYSQL_PASSWORD=elpis_password
+      - TZ=Asia/Shanghai
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - elpis-network
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+networks:
+  elpis-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local
